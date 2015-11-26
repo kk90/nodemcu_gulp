@@ -1,0 +1,4 @@
+snippets
+
+
+file.open("init.lua","r"); print(file.read());
