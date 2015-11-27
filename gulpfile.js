@@ -8,7 +8,8 @@ var config = require("./gulpfile_config.json")
 var serialport;
 var queue=[""];
 var busy=false;
-var endcall=function(){};;
+var endcall=function(){};
+
 
 gulp.task('default', ['minify', 'write']);
 
@@ -24,7 +25,7 @@ function writeAndDrain(data) {
 		serialport.drain(function(error) {
 			setTimeout(function(){
 				processQueue();
-			},300)	
+			},config.delay || 700)	
 		});
 	});
 }
@@ -90,7 +91,7 @@ gulp.task('write', function(done) {
 			if (error) {
 				return done(error);
 			} else {
-				gulp.src('src/*.lua')
+				gulp.src('src/*')
 					.pipe(foreach(function(stream, file) {
 						var name = path.basename(file.path);
 						file.name = name;

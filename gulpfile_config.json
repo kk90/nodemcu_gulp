@@ -1,4 +1,5 @@
 {
 	"serialport":"/dev/ttyUSB0",
-	"baudrate":9600
+	"baudrate":9600,
+	"delay":400
 }
